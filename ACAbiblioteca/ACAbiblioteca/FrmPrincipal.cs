@@ -7,25 +7,25 @@ namespace ACAbiblioteca
         public FrmPrincipal()
         {
             InitializeComponent();
-           // Conexion conexion = new Conexion();
+            // Conexion conexion = new Conexion();
             //try
 
             //{
-              //  using (var conn = conexion.ObtenerConexion())
-                {
+            //  using (var conn = conexion.ObtenerConexion())
+            {
                 //    conn.Open();
-                  //  MessageBox.Show("Conexion a la base de datos establecida correctamente. ",
-                    //    "ACAbiblioteca",
-                      //MessageBoxButtons.OK,
-                      //MessageBoxIcon.Information);
+                //  MessageBox.Show("Conexion a la base de datos establecida correctamente. ",
+                //    "ACAbiblioteca",
+                //MessageBoxButtons.OK,
+                //MessageBoxIcon.Information);
                 //}
             }
             //catch (Exception ex) {
-            
+
             //    MessageBox.Show("Error al conectar a la base de datos: " + ex.Message,
-              //  "ACAbiblioteca",
-                //      MessageBoxButtons.OK,
-                  //    MessageBoxIcon.Error);
+            //  "ACAbiblioteca",
+            //      MessageBoxButtons.OK,
+            //    MessageBoxIcon.Error);
 
             //}
 
@@ -85,5 +85,9 @@ namespace ACAbiblioteca
             Application.Exit();
         }
 
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

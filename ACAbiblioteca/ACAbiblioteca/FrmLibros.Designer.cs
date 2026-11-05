@@ -79,7 +79,7 @@
             LblTitulo.BackColor = Color.Transparent;
             LblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LblTitulo.ForeColor = Color.White;
-            LblTitulo.Location = new Point(250, 9);
+            LblTitulo.Location = new Point(610, 9);
             LblTitulo.Name = "LblTitulo";
             LblTitulo.Size = new Size(243, 32);
             LblTitulo.TabIndex = 0;
@@ -99,7 +99,7 @@
             // 
             // BtnBuscar
             // 
-            BtnBuscar.Location = new Point(838, 26);
+            BtnBuscar.Location = new Point(822, 24);
             BtnBuscar.Name = "BtnBuscar";
             BtnBuscar.Size = new Size(75, 23);
             BtnBuscar.TabIndex = 2;
@@ -109,7 +109,7 @@
             // 
             // TxtBuscarISBN
             // 
-            TxtBuscarISBN.Location = new Point(644, 26);
+            TxtBuscarISBN.Location = new Point(628, 24);
             TxtBuscarISBN.Name = "TxtBuscarISBN";
             TxtBuscarISBN.Size = new Size(145, 23);
             TxtBuscarISBN.TabIndex = 1;
@@ -119,7 +119,7 @@
             // 
             LblBuscar.AutoSize = true;
             LblBuscar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblBuscar.Location = new Point(534, 34);
+            LblBuscar.Location = new Point(518, 32);
             LblBuscar.Name = "LblBuscar";
             LblBuscar.Size = new Size(34, 15);
             LblBuscar.TabIndex = 0;
@@ -127,6 +127,7 @@
             // 
             // PnlDatos
             // 
+            PnlDatos.BackColor = SystemColors.ControlLight;
             PnlDatos.Controls.Add(CmbEditorial);
             PnlDatos.Controls.Add(CmbAutor);
             PnlDatos.Controls.Add(TxtExistencias);
@@ -150,7 +151,7 @@
             // CmbEditorial
             // 
             CmbEditorial.FormattingEnabled = true;
-            CmbEditorial.Location = new Point(682, 150);
+            CmbEditorial.Location = new Point(660, 148);
             CmbEditorial.Name = "CmbEditorial";
             CmbEditorial.Size = new Size(171, 23);
             CmbEditorial.TabIndex = 16;
@@ -158,42 +159,42 @@
             // CmbAutor
             // 
             CmbAutor.FormattingEnabled = true;
-            CmbAutor.Location = new Point(682, 103);
+            CmbAutor.Location = new Point(660, 101);
             CmbAutor.Name = "CmbAutor";
             CmbAutor.Size = new Size(171, 23);
             CmbAutor.TabIndex = 15;
             // 
             // TxtExistencias
             // 
-            TxtExistencias.Location = new Point(682, 262);
+            TxtExistencias.Location = new Point(660, 260);
             TxtExistencias.Name = "TxtExistencias";
             TxtExistencias.Size = new Size(171, 23);
             TxtExistencias.TabIndex = 14;
             // 
             // TxtAño
             // 
-            TxtAño.Location = new Point(682, 223);
+            TxtAño.Location = new Point(660, 221);
             TxtAño.Name = "TxtAño";
             TxtAño.Size = new Size(171, 23);
             TxtAño.TabIndex = 13;
             // 
             // TxtCategoria
             // 
-            TxtCategoria.Location = new Point(682, 187);
+            TxtCategoria.Location = new Point(660, 185);
             TxtCategoria.Name = "TxtCategoria";
             TxtCategoria.Size = new Size(171, 23);
             TxtCategoria.TabIndex = 12;
             // 
             // TxtTitulo
             // 
-            TxtTitulo.Location = new Point(682, 66);
+            TxtTitulo.Location = new Point(660, 64);
             TxtTitulo.Name = "TxtTitulo";
             TxtTitulo.Size = new Size(171, 23);
             TxtTitulo.TabIndex = 9;
             // 
             // TxtISBN
             // 
-            TxtISBN.Location = new Point(682, 25);
+            TxtISBN.Location = new Point(660, 23);
             TxtISBN.Name = "TxtISBN";
             TxtISBN.Size = new Size(171, 23);
             TxtISBN.TabIndex = 8;
@@ -202,7 +203,7 @@
             // 
             LblExistencias.AutoSize = true;
             LblExistencias.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblExistencias.Location = new Point(539, 270);
+            LblExistencias.Location = new Point(517, 268);
             LblExistencias.Name = "LblExistencias";
             LblExistencias.Size = new Size(67, 15);
             LblExistencias.TabIndex = 7;
@@ -212,7 +213,7 @@
             // 
             LblAño.AutoSize = true;
             LblAño.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblAño.Location = new Point(574, 231);
+            LblAño.Location = new Point(552, 229);
             LblAño.Name = "LblAño";
             LblAño.Size = new Size(32, 15);
             LblAño.TabIndex = 6;
@@ -222,7 +223,7 @@
             // 
             LblCategoria.AutoSize = true;
             LblCategoria.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblCategoria.Location = new Point(546, 195);
+            LblCategoria.Location = new Point(524, 193);
             LblCategoria.Name = "LblCategoria";
             LblCategoria.Size = new Size(60, 15);
             LblCategoria.TabIndex = 5;
@@ -232,7 +233,7 @@
             // 
             LblEditorial.AutoSize = true;
             LblEditorial.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblEditorial.Location = new Point(555, 158);
+            LblEditorial.Location = new Point(533, 156);
             LblEditorial.Name = "LblEditorial";
             LblEditorial.Size = new Size(53, 15);
             LblEditorial.TabIndex = 4;
@@ -242,7 +243,7 @@
             // 
             LblAutor.AutoSize = true;
             LblAutor.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblAutor.Location = new Point(568, 111);
+            LblAutor.Location = new Point(546, 109);
             LblAutor.Name = "LblAutor";
             LblAutor.Size = new Size(40, 15);
             LblAutor.TabIndex = 3;
@@ -252,7 +253,7 @@
             // 
             LblTituloL.AutoSize = true;
             LblTituloL.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblTituloL.Location = new Point(569, 69);
+            LblTituloL.Location = new Point(547, 67);
             LblTituloL.Name = "LblTituloL";
             LblTituloL.Size = new Size(41, 15);
             LblTituloL.TabIndex = 2;
@@ -262,7 +263,7 @@
             // 
             LblISBN.AutoSize = true;
             LblISBN.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblISBN.Location = new Point(572, 33);
+            LblISBN.Location = new Point(550, 31);
             LblISBN.Name = "LblISBN";
             LblISBN.Size = new Size(37, 15);
             LblISBN.TabIndex = 1;
@@ -286,7 +287,7 @@
             BtnCancelar.IconColor = Color.Black;
             BtnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnCancelar.IconSize = 25;
-            BtnCancelar.Location = new Point(1096, 19);
+            BtnCancelar.Location = new Point(1013, 19);
             BtnCancelar.Name = "BtnCancelar";
             BtnCancelar.Size = new Size(149, 40);
             BtnCancelar.TabIndex = 4;
@@ -301,7 +302,7 @@
             BtnEliminar.IconColor = Color.Black;
             BtnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnEliminar.IconSize = 25;
-            BtnEliminar.Location = new Point(899, 19);
+            BtnEliminar.Location = new Point(816, 19);
             BtnEliminar.Name = "BtnEliminar";
             BtnEliminar.Size = new Size(149, 40);
             BtnEliminar.TabIndex = 3;
@@ -316,7 +317,7 @@
             BtnEditar.IconColor = Color.Black;
             BtnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnEditar.IconSize = 25;
-            BtnEditar.Location = new Point(693, 19);
+            BtnEditar.Location = new Point(610, 19);
             BtnEditar.Name = "BtnEditar";
             BtnEditar.Size = new Size(149, 40);
             BtnEditar.TabIndex = 2;
@@ -331,7 +332,7 @@
             BtnGuardar.IconColor = Color.Black;
             BtnGuardar.IconFont = FontAwesome.Sharp.IconFont.Regular;
             BtnGuardar.IconSize = 25;
-            BtnGuardar.Location = new Point(506, 19);
+            BtnGuardar.Location = new Point(423, 19);
             BtnGuardar.Name = "BtnGuardar";
             BtnGuardar.Size = new Size(149, 40);
             BtnGuardar.TabIndex = 1;
@@ -346,7 +347,7 @@
             BtnNuevo.IconColor = Color.Black;
             BtnNuevo.IconFont = FontAwesome.Sharp.IconFont.Regular;
             BtnNuevo.IconSize = 25;
-            BtnNuevo.Location = new Point(320, 19);
+            BtnNuevo.Location = new Point(237, 19);
             BtnNuevo.Name = "BtnNuevo";
             BtnNuevo.Size = new Size(149, 40);
             BtnNuevo.TabIndex = 0;
@@ -358,7 +359,7 @@
             // DgvLibros
             // 
             DgvLibros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DgvLibros.Location = new Point(182, 560);
+            DgvLibros.Location = new Point(158, 560);
             DgvLibros.Name = "DgvLibros";
             DgvLibros.Size = new Size(1111, 260);
             DgvLibros.TabIndex = 4;

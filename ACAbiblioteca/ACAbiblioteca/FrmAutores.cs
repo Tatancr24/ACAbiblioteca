@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ACAbiblioteca.Datos;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,291 @@ namespace ACAbiblioteca
         public FrmAutores()
         {
             InitializeComponent();
+            CargarAutores();
+        }
+
+        private void FrmAutores_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CargarAutores()
+        {
+            try
+            {
+                Conexion conexion = new Conexion();
+
+                using (SqlConnection cn = conexion.ObtenerConexion())
+                {
+                    cn.Open();
+
+                    string consulta = "SELECT * FROM Autores";
+
+                    using (SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cn))
+                    {
+                        DataTable tabla = new DataTable();
+
+                        adaptador.Fill(tabla);
+
+                        DgvAutores.DataSource = tabla;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al cargar los autores:\n" + ex.Message,
+                    "Biblioteca",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(TxtNombre.Text) ||
+                    string.IsNullOrWhiteSpace(TxtApellido.Text))
+                {
+                    MessageBox.Show(
+                        "Complete todos los campos antes de guardar.",
+                        "Biblioteca",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+                Conexion conexion = new Conexion();
+
+                using (SqlConnection cn = conexion.ObtenerConexion())
+                {
+                    cn.Open();
+
+                    string consulta = @"INSERT INTO Autores
+                                (Nombre, Apellido)
+                                VALUES
+                                (@Nombre, @Apellido)";
+
+                    using (SqlCommand comando = new SqlCommand(consulta, cn))
+                    {
+                        comando.Parameters.AddWithValue(
+                            "@Nombre",
+                            TxtNombre.Text.Trim());
+
+                        comando.Parameters.AddWithValue(
+                            "@Apellido",
+                            TxtApellido.Text.Trim());
+
+                        comando.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show(
+                    "Autor guardado correctamente.",
+                    "Biblioteca",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                CargarAutores();
+
+                TxtNombre.Clear();
+                TxtApellido.Clear();
+
+                TxtNombre.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al guardar el autor:\n" + ex.Message,
+                    "Biblioteca",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            TxtNombre.Clear();
+            TxtApellido.Clear();
+
+            TxtNombre.Focus();
+        }
+
+
+        private void DgvAutores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            TxtNombre.Text = DgvAutores.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+
+            TxtApellido.Text = DgvAutores.Rows[e.RowIndex].Cells["Apellido"].Value.ToString();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(TxtNombre.Text) ||
+                    string.IsNullOrWhiteSpace(TxtApellido.Text))
+                {
+                    MessageBox.Show(
+                        "Complete todos los campos antes de editar.",
+                        "Biblioteca",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+                if (DgvAutores.CurrentRow == null)
+                {
+                    MessageBox.Show(
+                        "Seleccione un autor para editar.",
+                        "Biblioteca",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+                int idAutor = Convert.ToInt32(
+                    DgvAutores.CurrentRow.Cells["IdAutor"].Value);
+
+                Conexion conexion = new Conexion();
+
+                using (SqlConnection cn = conexion.ObtenerConexion())
+                {
+                    cn.Open();
+
+                    string consulta = @"UPDATE Autores
+                                SET Nombre = @Nombre,
+                                    Apellido = @Apellido
+                                WHERE IdAutor = @IdAutor";
+
+                    using (SqlCommand comando = new SqlCommand(consulta, cn))
+                    {
+                        comando.Parameters.AddWithValue(
+                            "@Nombre",
+                            TxtNombre.Text.Trim());
+
+                        comando.Parameters.AddWithValue(
+                            "@Apellido",
+                            TxtApellido.Text.Trim());
+
+                        comando.Parameters.AddWithValue(
+                            "@IdAutor",
+                            idAutor);
+
+                        comando.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show(
+                    "Autor actualizado correctamente.",
+                    "Biblioteca",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                CargarAutores();
+
+                TxtNombre.Clear();
+                TxtApellido.Clear();
+
+                TxtNombre.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al actualizar el autor:\n" + ex.Message,
+                    "Biblioteca",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DgvAutores.CurrentRow == null)
+                {
+                    MessageBox.Show(
+                        "Seleccione un autor para eliminar.",
+                        "Biblioteca",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+                int idAutor = Convert.ToInt32(
+                    DgvAutores.CurrentRow.Cells["IdAutor"].Value);
+
+                DialogResult respuesta = MessageBox.Show(
+                    "¿Está seguro de eliminar este autor?",
+                    "Biblioteca",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.No)
+                {
+                    return;
+                }
+
+                Conexion conexion = new Conexion();
+
+                using (SqlConnection cn = conexion.ObtenerConexion())
+                {
+                    cn.Open();
+
+                    string consulta =
+                        "DELETE FROM Autores WHERE IdAutor = @IdAutor";
+
+                    using (SqlCommand comando =
+                           new SqlCommand(consulta, cn))
+                    {
+                        comando.Parameters.AddWithValue(
+                            "@IdAutor",
+                            idAutor);
+
+                        comando.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show(
+                    "Autor eliminado correctamente.",
+                    "Biblioteca",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                CargarAutores();
+
+                TxtNombre.Clear();
+                TxtApellido.Clear();
+
+                TxtNombre.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al eliminar el autor:\n" + ex.Message,
+                    "Biblioteca",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            TxtNombre.Clear();
+            TxtApellido.Clear();
+
+            TxtNombre.Focus();
         }
     }
-}
+    }
+

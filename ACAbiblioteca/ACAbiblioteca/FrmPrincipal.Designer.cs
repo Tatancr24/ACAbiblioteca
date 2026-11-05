@@ -150,6 +150,7 @@
             BtnEditoriales.TextAlign = ContentAlignment.MiddleRight;
             BtnEditoriales.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnEditoriales.UseVisualStyleBackColor = false;
+            BtnEditoriales.Click += BtnEditoriales_Click;
             // 
             // BtnAutores
             // 
@@ -171,6 +172,7 @@
             BtnAutores.TextAlign = ContentAlignment.MiddleRight;
             BtnAutores.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnAutores.UseVisualStyleBackColor = false;
+            BtnAutores.Click += BtnAutores_Click;
             // 
             // BtnUsuarios
             // 
@@ -326,6 +328,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema Gestion de Biblioteca";
             WindowState = FormWindowState.Maximized;
+            Load += FrmPrincipal_Load;
             PnlMenu.ResumeLayout(false);
             PnlMenu.PerformLayout();
             PnlLogo.ResumeLayout(false);
