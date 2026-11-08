@@ -108,6 +108,7 @@
             BtnReportes.TextAlign = ContentAlignment.MiddleRight;
             BtnReportes.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnReportes.UseVisualStyleBackColor = false;
+            BtnReportes.Click += BtnReportes_Click;
             // 
             // BtnPrestamos
             // 
@@ -129,6 +130,7 @@
             BtnPrestamos.TextAlign = ContentAlignment.MiddleRight;
             BtnPrestamos.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnPrestamos.UseVisualStyleBackColor = false;
+            BtnPrestamos.Click += BtnPrestamos_Click;
             // 
             // BtnEditoriales
             // 
